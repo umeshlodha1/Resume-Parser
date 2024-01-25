@@ -16,7 +16,7 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfdocument import PDFDocument
 
-file_path = 'resume_parser2\categorized_companies.csv'
+file_path = 'resume_parser2/categorized_companies.csv'
 df_companies = pd.read_csv(file_path)
 nlp = spacy.load('en_core_web_sm')
 
@@ -104,7 +104,7 @@ def extract_skills(data, skills_file=None, job_skills=[]):
     tokens = [token.text for token in nlp_text if not token.is_stop]
 
     if not skills_file:
-        data = pd.read_csv('resume_parser2\skills.csv')
+        data = pd.read_csv('resume_parser2/skills.csv')
     else:
         data = pd.read_csv(skills_file)
 
@@ -169,7 +169,7 @@ def calculate_overall_score(skill_match_percentage, experience_match, location_m
 
 def location_matcher(applicant_location, job_location):
     score = 0
-    file_path = 'resume_parser2\worldcities.csv'
+    file_path = 'resume_parser2/worldcities.csv'
     df = pd.read_csv(file_path, encoding='latin-1')
     dataset = df[['city', 'country', 'iso2', 'tier']]
 
