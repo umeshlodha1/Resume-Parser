@@ -461,7 +461,7 @@ def extract_experience(raw_text):
     :return: list of experience
     '''
     
-    json_file_path = 'pyresparser\job-titles.json'
+    json_file_path = 'pyresparser/job-titles.json'
 
     newdict = {}
 
@@ -751,7 +751,7 @@ def extract_gender(text):
 
 
 def extract_current_city(text):
-    file_path = 'pyresparser\worldcities.csv'
+    file_path = 'pyresparser/worldcities.csv'
     df = pd.read_csv(file_path, encoding='latin-1')
     cities_list = df[df['iso2'] == 'IN']['city'].tolist()
     current_city_pattern = re.compile(r'Current\s*City[:\s]*(\w+)', re.IGNORECASE)
