@@ -12,6 +12,9 @@ from .serializers import PdfUploadSerializer,JobPostingSerializer,ResumeOnlySeri
 from .models import JobPosting
 from rest_framework import status
 from .analysis import analyze_job_match,final_analysis, calculate_overall_score, calculate_duration_in_months, get_industry_for_company, assign_score
+import nltk
+nltk.download('stopwords')
+
 
 
 class JobPostingView(APIView):
